@@ -115,7 +115,7 @@ function loadDashboard() {
     return apiGet("/api/dashboard")
         .then(function(data) { $("#dash-ts").textContent = data.timestamp; renderCards(data.funds); })
         .catch(function(err) {
-            grid.innerHTML = '<div class="loader" style="grid-column:1/-1"><h3 style="color:var(--red)">API Python offline</h3><p style="margin-top:10px;color:var(--t2)">' + err.message + '</p><p style="margin-top:12px;color:var(--t3);font-size:12px">Execute <code>python server.py</code> no PyCharm</p></div>';
+            grid.innerHTML = '<div class="loader" style="grid-column:1/-1"><h3 style="color:var(--red)">API Python offline</h3><p style="margin-top:10px;color:var(--t2)">' + err.message + '</p><p style="margin-top:12px;color:var(--t3);font-size:12px">Execute <codeservidor</code></p></div>';
         });
 }
 
