@@ -8,7 +8,7 @@
 // IMPORTANTE: Substitua pela URL real do seu backend Koyeb
 // Exemplo: "https://meu-fiinvest-backend.koyeb.app"
 // ══════════════════════════════════════════════════════════
-var API_URL = "https://COLE-SUA-URL-KOYEB-AQUI.koyeb.app";
+var API_URL = "direct-nady-fiinvest-f4173ed0.koyeb.app";
 
 var REGISTERED_USERS = [
     { username: "vitorvargem",  password: "Vvjb1234#",  displayName: "Vítor Vargem" },
