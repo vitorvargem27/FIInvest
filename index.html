@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>FIIInvest — Análise Inteligente de Fundos Imobiliários</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
 </head>
@@ -16,16 +16,12 @@
         <div class="login-orb login-orb--1"></div>
         <div class="login-orb login-orb--2"></div>
         <div class="login-orb login-orb--3"></div>
+        <div class="login-grid-bg"></div>
         <div class="login-card" id="login-card">
             <div class="login-header">
-                <div class="login-icon">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
-                        <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/>
-                        <line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/>
-                    </svg>
-                </div>
-                <h1>FII<span>Invest</span></h1>
+                <img src="FIInvest_Logo.png" alt="FIInvest" class="login-logo">
                 <p>Análise Inteligente de Fundos Imobiliários</p>
+                <div class="login-badge">ML Engine v3 · 11 Fatores</div>
             </div>
             <form id="login-form" autocomplete="off">
                 <div class="field">
@@ -43,7 +39,7 @@
                     </div>
                 </div>
                 <div id="login-error" class="login-error"></div>
-                <button type="submit" class="btn-submit">Entrar <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+                <button type="submit" class="btn-submit">Acessar Plataforma <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
             </form>
         </div>
     </div>
@@ -58,8 +54,7 @@
         <nav class="nav">
             <div class="nav-inner">
                 <a class="nav-brand" href="#">
-                    <div class="nav-brand__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg></div>
-                    <span>FII<em>Invest</em></span>
+                    <img src="FIInvest_Logo.png" alt="FIInvest" class="nav-logo">
                 </a>
                 <div class="nav-tabs">
                     <button class="tab active" data-page="dashboard"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Dashboard</button>
@@ -91,16 +86,20 @@
                 <header class="pg-head">
                     <div>
                         <h2>Fundos Recomendados</h2>
-                        <p>MXRF11 + Top 4 por ML · Atualizado em <span id="dash-ts">--</span></p>
+                        <p>MXRF11 + Top 4 por ML v3 (11 fatores) · Atualizado em <span id="dash-ts">--</span></p>
                     </div>
                     <button class="btn-action" id="refresh-dash">
                         <svg class="spin-target" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
                         Atualizar Dados
                     </button>
                 </header>
+
+                <!-- Macro bar -->
+                <div class="macro-strip" id="macro-strip"></div>
+
                 <div class="banner">
                     <span>ℹ️</span>
-                    <p><strong>MXRF11</strong> é seu fundo fixo. Os outros <strong>4 são os melhores FIIs</strong> selecionados pelo algoritmo de ML neste momento, ranqueados por score. Cada card mostra dividendos e quantas cotas você precisa para <strong>R$ 1.000/mês</strong>.</p>
+                    <p><strong>MXRF11</strong> é seu fundo fixo. Os outros <strong>4 são os melhores FIIs</strong> selecionados pelo algoritmo ML v3 com 11 fatores analíticos. Cada card mostra risco, Sharpe ratio, dividendos e cotas para <strong>R$ 1.000/mês</strong>.</p>
                 </div>
                 <div class="grid-cards" id="grid-cards"></div>
             </section>
@@ -109,10 +108,10 @@
             <section id="pg-insights" class="pg">
                 <header class="pg-head">
                     <div>
-                        <h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg> Insights IA</h2>
-                        <p>Análise completa por Machine Learning · <span id="ins-ts">--</span></p>
+                        <h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg> Insights IA</h2>
+                        <p>Análise multi-fatorial avançada · ML v3 · <span id="ins-ts">--</span></p>
                     </div>
-                    <button class="btn-action btn-action--purple" id="refresh-ins">
+                    <button class="btn-action btn-action--cyan" id="refresh-ins">
                         <svg class="spin-target" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
                         Atualizar Dados
                     </button>
