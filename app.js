@@ -5,7 +5,7 @@
 
 // Para teste local: "http://localhost:5000"
 // Para produção (Koyeb): "https://direct-nady-fiinvest-f4173ed0.koyeb.app"
-var API_URL = "http://localhost:5000";
+var API_URL = "https://direct-nady-fiinvest-f4173ed0.koyeb.app";
 
 // ══════════════════════════════════════════════════
 //  GOOGLE AUTH — CONFIGURAÇÃO
