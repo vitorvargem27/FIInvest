@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="dark-theme">
-
     <!-- LOGIN -->
     <div id="login-screen" class="login-screen">
         <div class="login-orb login-orb--1"></div>
@@ -20,59 +21,47 @@
         <div class="login-card" id="login-card">
             <div class="login-header">
                 <img src="FIInvest_Logo.png" alt="FIInvest" class="login-logo">
-                <p>Análise Inteligente de Fundos Imobiliários</p>
-                <div class="login-badge">ML Engine v3 · 11 Fatores</div>
+                <p>Análise Inteligente de Investimentos</p>
+                <div class="login-badge">ML Engine v4 · 30+ FIIs · 7 Categorias</div>
             </div>
             <form id="login-form" autocomplete="off">
-                <div class="field">
-                    <label for="inp-user">USUÁRIO</label>
-                    <input type="text" id="inp-user" placeholder="Digite seu usuário" required>
-                </div>
-                <div class="field">
-                    <label for="inp-pass">SENHA</label>
-                    <div class="pass-wrap">
-                        <input type="password" id="inp-pass" placeholder="Digite sua senha" required>
-                        <button type="button" class="eye-btn" id="eye-btn" aria-label="Mostrar senha">
-                            <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                        </button>
-                    </div>
-                </div>
+                <div class="field"><label for="inp-user">USUÁRIO</label><input type="text" id="inp-user" placeholder="Digite seu usuário" required></div>
+                <div class="field"><label for="inp-pass">SENHA</label><div class="pass-wrap"><input type="password" id="inp-pass" placeholder="Digite sua senha" required><button type="button" class="eye-btn" id="eye-btn" aria-label="Mostrar senha"><svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></button></div></div>
                 <div id="login-error" class="login-error"></div>
                 <button type="submit" class="btn-submit">Acessar Plataforma <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
             </form>
+            <div class="login-divider"><span>ou</span></div>
+            <div id="google-login-btn" class="google-btn-wrap">
+                <button type="button" class="btn-google" id="btn-google-custom">
+                    <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                    Entrar com Google
+                </button>
+            </div>
         </div>
     </div>
 
     <!-- APP -->
     <div id="app" class="app hidden">
-        <div id="conn-bar" class="conn-bar">
-            <span id="conn-dot" class="conn-dot"></span>
-            <span id="conn-text">Verificando conexão com API Python...</span>
-        </div>
-
+        <div id="conn-bar" class="conn-bar"><span id="conn-dot" class="conn-dot"></span><span id="conn-text">Verificando conexão...</span></div>
         <nav class="nav">
             <div class="nav-inner">
-                <a class="nav-brand" href="#">
-                    <img src="FIInvest_Logo.png" alt="FIInvest" class="nav-logo">
-                </a>
+                <a class="nav-brand" href="#"><img src="FIInvest_Logo.png" alt="FIInvest" class="nav-logo"></a>
                 <div class="nav-tabs">
                     <button class="tab active" data-page="dashboard"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Dashboard</button>
                     <button class="tab" data-page="insights"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg> Insights IA</button>
+                    <button class="tab" data-page="other"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> Outros Investimentos</button>
                 </div>
                 <div class="nav-right">
-                    <button class="icon-btn" id="theme-btn" title="Alternar tema">
-                        <svg class="ico-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                        <svg class="ico-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-                    </button>
+                    <button class="icon-btn" id="theme-btn" title="Alternar tema"><svg class="ico-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="ico-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
                     <div class="nav-user"><div class="avatar" id="avatar">V</div><span id="user-name">Usuário</span></div>
                     <button class="icon-btn icon-btn--red" id="logout-btn" title="Sair"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
                 </div>
                 <button class="burger" id="burger"><span></span><span></span><span></span></button>
             </div>
             <div class="mobile-drop" id="mobile-drop">
-                <button class="tab active" data-page="dashboard"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Dashboard</button>
-                <button class="tab" data-page="insights"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg> Insights IA</button>
+                <button class="tab active" data-page="dashboard">📊 Dashboard</button>
+                <button class="tab" data-page="insights">🧠 Insights IA</button>
+                <button class="tab" data-page="other">🌐 Outros Investimentos</button>
                 <div class="mobile-drop__actions">
                     <button class="icon-btn" id="theme-btn-m">🌗 Tema</button>
                     <button class="icon-btn icon-btn--red" id="logout-btn-m">🚪 Sair</button>
@@ -84,39 +73,39 @@
             <!-- DASHBOARD -->
             <section id="pg-dashboard" class="pg active">
                 <header class="pg-head">
-                    <div>
-                        <h2>Fundos Recomendados</h2>
-                        <p>MXRF11 + Top 4 por ML v3 (11 fatores) · Atualizado em <span id="dash-ts">--</span></p>
-                    </div>
-                    <button class="btn-action" id="refresh-dash">
-                        <svg class="spin-target" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
-                        Atualizar Dados
-                    </button>
+                    <div><h2>Fundos Recomendados</h2><p>MXRF11 + Top 10 por ML v4 · Atualizado em <span id="dash-ts">--</span></p></div>
+                    <button class="btn-action" id="refresh-dash"><svg class="spin-target" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Atualizar</button>
                 </header>
-
-                <!-- Macro bar -->
                 <div class="macro-strip" id="macro-strip"></div>
-
-                <div class="banner">
-                    <span>ℹ️</span>
-                    <p><strong>MXRF11</strong> é seu fundo fixo. Os outros <strong>4 são os melhores FIIs</strong> selecionados pelo algoritmo ML v3 com 11 fatores analíticos. Cada card mostra risco, Sharpe ratio, dividendos e cotas para <strong>R$ 1.000/mês</strong>.</p>
-                </div>
+                <div class="banner"><span>ℹ️</span><p><strong>MXRF11</strong> fixo + <strong>Top FIIs</strong> selecionados pelo ML v4 ({len(FII_DATABASE)} fundos analisados em 11 fatores). Cada card mostra risco, Sharpe, dividendos e cotas para <strong>R$ 1.000/mês</strong>.</p></div>
                 <div class="grid-cards" id="grid-cards"></div>
             </section>
 
-            <!-- INSIGHTS -->
+            <!-- INSIGHTS IA -->
             <section id="pg-insights" class="pg">
                 <header class="pg-head">
-                    <div>
-                        <h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg> Insights IA</h2>
-                        <p>Análise multi-fatorial avançada · ML v3 · <span id="ins-ts">--</span></p>
-                    </div>
-                    <button class="btn-action btn-action--cyan" id="refresh-ins">
-                        <svg class="spin-target" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
-                        Atualizar Dados
-                    </button>
+                    <div><h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg> Insights IA</h2><p>Selecione uma categoria · ML v4 · <span id="ins-ts">--</span></p></div>
                 </header>
+                <!-- Category Selector -->
+                <div class="cat-selector" id="cat-selector">
+                    <button class="cat-btn active" data-cat="todos"><span class="cat-icon">🏆</span><span class="cat-label">Todos</span><span class="cat-sub">Top 10 Geral</span></button>
+                    <button class="cat-btn" data-cat="papel"><span class="cat-icon">📄</span><span class="cat-label">Papel</span><span class="cat-sub">CRI / Recebíveis</span></button>
+                    <button class="cat-btn" data-cat="shoppings"><span class="cat-icon">🛍️</span><span class="cat-label">Shoppings</span><span class="cat-sub">Shopping Centers</span></button>
+                    <button class="cat-btn" data-cat="logistica"><span class="cat-icon">🏭</span><span class="cat-label">Logística</span><span class="cat-sub">Galpões / CD</span></button>
+                    <button class="cat-btn" data-cat="escritorio"><span class="cat-icon">🏢</span><span class="cat-label">Escritório</span><span class="cat-sub">Lajes Corp.</span></button>
+                    <button class="cat-btn" data-cat="renda_urbana"><span class="cat-icon">🏘️</span><span class="cat-label">Renda Urbana</span><span class="cat-sub">Varejo / Saúde</span></button>
+                    <button class="cat-btn" data-cat="fof"><span class="cat-icon">🔄</span><span class="cat-label">FOF</span><span class="cat-sub">Fundo de Fundos</span></button>
+                </div>
                 <div id="ins-body"></div>
+            </section>
+
+            <!-- OUTROS INVESTIMENTOS -->
+            <section id="pg-other" class="pg">
+                <header class="pg-head">
+                    <div><h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> Outros Investimentos</h2><p>Ações · ETFs · BDRs · Renda Fixa · <span id="oth-ts">--</span></p></div>
+                    <button class="btn-action btn-action--green" id="refresh-oth"><svg class="spin-target" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Atualizar</button>
+                </header>
+                <div id="oth-body"></div>
             </section>
         </main>
     </div>
